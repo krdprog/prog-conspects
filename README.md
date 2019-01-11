@@ -1,3 +1,4 @@
-## Wiki-заметки по программированию
+# Заметки и конспекты по программированию
 
-https://github.com/krdprog/notes/wiki
+- Rails. Хартл: https://github.com/krdprog/notes/blob/master/hartl-rails.md
+- Ruby in RoR. Хартл: https://github.com/krdprog/notes/blob/master/hartl-ruby.md
