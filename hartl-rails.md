@@ -99,10 +99,10 @@ rake -T # все
 
 REST - передача репрезентативного состояния (архитектурный стиль разработки распределённых сетевых систем). Рой Фолдинг, 2000
 
-C - POST - CREATE
-R - GET - READ
-U - PATCH - UPDATE
-D - DELETE - DESTROY
+- C - POST - CREATE
+- R - GET - READ
+- U - PATCH - UPDATE
+- D - DELETE - DESTROY
 
 CRUD - операции БД и 4 метода HTTP-запроса.
 
