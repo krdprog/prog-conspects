@@ -1,4 +1,4 @@
-### Hartl notes:
+### Hartl. Ruby on Rails. Notes:
 
 Ветвь dev:
 ```bash
