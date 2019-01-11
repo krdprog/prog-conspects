@@ -223,3 +223,101 @@ p - возвращает объект, а puts - возвращает nil
 stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 ```
 **Если хеш - последний аргумент в вызове метода, то фигурные скобки можно опустить**
+
+```ruby
+'data-turbolinks-track' => true # с хеш-ракетой, т.к. в символе нельзя использовать дефис
+```
+### Конструкторы
+
+```ruby
+s = "foo" # литеральный конструктор строки
+
+s = String.new("foo") # именованный конструктор строки
+
+a = Array.new([1, 2, 3])
+
+h = Hash.new
+h[:foo] #=> nil
+
+h = Hash.new(0) # принимает значение по-умолчанию
+h[:foo] #=> 0
+```
+.new - метод класса (вызов к классу)
+.length - метод экземпляра класса (вызов к экземпляру класса)
+
+```bash
+a.class
+a.class.superclass.superclass
+# наследование классов
+```
+
+```ruby
+class Word
+  def palindrome?(string)
+    string == string.reverse
+  end
+end
+
+w = Word.new
+w.palindrome?("Foo") #=> false
+```
+```ruby
+class Word < String
+  def palindrome?
+    self == self.reverse
+  end
+end
+
+s = Word.new("level")
+s.palindrome? #=> true
+s.size #=> 5
+```
+Изменение встроенных классов:
+```ruby
+class String
+  def palindrome?
+    self == self.reverse
+  end
+end
+
+"level".palindrome? #=> true
+```
+
+```ruby
+"".empty? # Ruby-метод
+" ".blank? # Rails-метод
+```
+
+```ruby
+class User
+  # создадим методы доступа к атрибутам
+  attr_accessor :name :email
+  
+  # автоматически вызывается при User.new, аргумент attributes со значением по умолчанию - пустой хеш (nil)
+  def initialize(attributes = {})
+    @name = attributes[:name]
+    @email = attributes[:email]
+  end
+  
+  # переменные экземпляра (в Rails автоматически доступны во views)
+  def formatted_email
+    "#{@name} - #{@email}"
+  end
+end
+```
+- getter - метод чтения
+- setter - метод записи
+
+```ruby
+require './example_user'
+
+example = User.new
+example.name = "Foo"
+example.email = "foo@bar.com"
+
+example.formatted_email
+
+# или так:
+user = User.new(name: "Foo", email: "Bar")
+```
+Инициализация объектов передачей хешей в аргументах широко используется в Rails.
