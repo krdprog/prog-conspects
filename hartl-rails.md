@@ -345,3 +345,35 @@ example.formatted_email
 user = User.new(name: "Foo", email: "Bar")
 ```
 Инициализация объектов передачей хешей в аргументах широко используется в Rails.
+
+### Оформление макета:
+
+```ruby
+<%= link_to "Logo", "#", id: "logo" %>
+```
+текст ссылки - именованный маршрут - хеш с дополнительными параметрами (в случае выше: CSS id)
+
+Картинка-ссылка:
+```ruby
+<%= link_to image_tag("logo.png", alt: "logo"), 'http://krdprog.ru/' %>
+```
+
+Картинки складываем в /app/asserts/images/, но в коде загруженной страницы путь будет виден без images части.
+
+Установим бустрап:
+
+```ruby
+gem 'bootstrap-sass'
+```
+```bash
+bundle install
+```
+и, добавить в файл /app/asserts/stylesheets/custom.css.scss:
+```css
+@import "bootstrap-sprockets";
+@import "bootstrap";
+```
+
+Все стили будем прописывать тут: /app/asserts/stylesheets/custom.css.scss
+
+Все таблицы стилей из каталога /app/asserts/stylesheets/ добавятся в файл application.css
