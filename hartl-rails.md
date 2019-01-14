@@ -104,15 +104,15 @@ REST - передача репрезентативного состояния (�
 - U - PATCH - UPDATE
 - D - DELETE - DESTROY
 
-CRUD - операции БД и 4 метода HTTP-запроса.
+Маршруты RESTful - CRUD - операции БД и 4 метода HTTP-запроса + link_to (для ссылки)
 
-- index - /users - GET
-- show - /users/1 - GET
-- new - /users/new - GET
-- edit - /users/edit - GET
+- index - /users - GET - users_path
+- show - /users/1 - GET - user
+- new - /users/new - GET - new_user_path
+- edit - /users/1/edit - GET - edit_user_path(user)
 - create - /users - POST
 - update - /users/1 - PATCH
-- destroy - /users/1 - DELETE
+- destroy - /users/1 - DELETE - user, method: :delete
 
 Решить, какие контроллеры и методы необходимы: структур. приложение использ. ресурсы которые могут CRUD
 
@@ -137,11 +137,11 @@ view:
 ```
 #### link_to
 
+- users list - users_path
 - show - user
+- new user - new_user_path
 - edit - edit_user_path(user)
 - destroy - user, method: :delete
-- new user - new_user_path
-- users list - users_path
 
 #### routes.rb
 
