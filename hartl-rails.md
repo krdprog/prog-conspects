@@ -482,3 +482,18 @@ Sass:
   }
 }
 ```
+
+Вложение правила со ссылкой на родительский элемент:
+
+```css
+#logo {
+	margin-left: 10px;
+	color: #fff;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+```
+
+Sass заменяет &:hover на #logo:hover
