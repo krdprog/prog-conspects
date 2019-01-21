@@ -21,6 +21,7 @@
 - http://orgmode.org/
 - https://www.emacswiki.org/emacs/CategoryMail
 - http://www.unix-lab.org/posts/emacs/
+- http://www.unix-lab.org/posts/emacs-ide/ - настройка окружения, в т.ч. руби
 
 Пакеты для установки:
 
