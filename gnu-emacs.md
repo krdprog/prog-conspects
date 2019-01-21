@@ -22,6 +22,7 @@
 - https://www.emacswiki.org/emacs/CategoryMail
 - http://www.unix-lab.org/posts/emacs/
 - http://www.unix-lab.org/posts/emacs-ide/ - настройка окружения, в т.ч. руби
+- http://www.unix-lab.org/posts/emacs-snippets/
 
 Пакеты для установки:
 
