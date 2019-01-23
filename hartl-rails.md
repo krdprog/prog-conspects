@@ -200,7 +200,7 @@ rails generate controller StaticPages home help
 ```bash
 rails destroy controller StaticPages home
 ```
-Откат создания моделил:
+Откат создания модели:
 ```bash
 rails destroy model User
 rake db:migrate
