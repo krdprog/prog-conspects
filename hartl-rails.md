@@ -497,3 +497,17 @@ Sass:
 ```
 
 Sass заменяет &:hover на #logo:hover
+
+#### Переменные в Sass
+
+```css
+$light-gray: #777;
+
+color: $light-gray;
+```
+
+В Less, переменные обозначаются знаком @, в Sass - $
+
+
+
+
