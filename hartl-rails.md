@@ -508,6 +508,123 @@ color: $light-gray;
 
 В Less, переменные обозначаются знаком @, в Sass - $
 
+### Ссылки в макете:
+
+```text
+Home     | /        | root_path
+About    | /about   | about_path
+Help     | /help    | help_path
+Contact  | /contact | contact_path
+Signup   | /signup  | signup_path
+Login    | /login   | login_path
+```
+
+```ruby
+<%= link_to "About", about_path %>
+```
+
+С помощью файла /config/routes.rb Rails определяет соответствия между именами маршрутов и адресами URL.
+
+```ruby
+root_path -> '/'
+root_url -> 'https://foo.com/'
+```
+
+Общее соглашение использовать _path, кроме случаев переадресации (стандарт HTTP требует полный адрес URL) - _url
+
+**Чтобы определить именованные маршруты**, надо поменять правила в /config/routes.rb:
+
+```ruby
+get 'static_pages/help'
+# поменять на:
+get 'help' => 'static_pages#help'
+```
+**Второй вариант передаёт запрос GET к адресу URL /help в метод help контроллера StaticPages и создаётся именованные маршруты help_path и help_url**
+
+### Тесты для проверки ссылок в макете:
+
+Проверим ссылки в макете с помощью интеграционных тестов.
+
+Создадим тест site_layout
+
+```bash
+rails g integration_test site_layout
+```
+Или используя алиас (создал для себя rgit):
+
+```bash
+rgit site_layout
+```
+Будет создан файл /test/integration/site_layout_test.rb
+
+Добавим в него тест проверки наших ссылок:
+
+```ruby
+require 'test_helper'
+
+class SiteLayoutTest < ActionDispatch::IntegrationTest
+
+  test "layout links" do
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select "a[href=?]", root_path, count: 2
+    assert_select "a[href=?]", help_path
+    assert_select "a[href=?]", about_path
+    assert_select "a[href=?]", contact_path
+  end
+
+end
+```
+
+Дополнительно потребовался gem, добавить в Gemfile и сделать bundle install:
+
+```ruby
+gem 'rails-controller-testing'
+```
+
+Запустим интеграционный тест:
+
+```bash
+bundle exec rake test:integration
+```
+
+И, все тесты:
+
+```bash
+bundle exec rake test
+```
+
+Примеры assert_select:
+
+```text
+assert_select "div"                         | <div>faz</div>
+assert_select "div", "foo"                  | <div>foo</div>
+assert_select "div.nav"                     | <div class="nav">foo</div>
+assert_select "div#profile"                 | <div id="profile">foo</div>
+assert_select "div[name=ku]"                | <div name="ku">foo</div>
+assert_select "a[href=?]", '/', count: 1    | <a href="/">foo</a>
+assert_select "a[href=?]", '/', text: "bar" | <a href="/">bar</a>
+```
 
 
+### Подготовим всё для авторизации:
+
+Создадим контроллер Users и метод действия new:
+
+```bash
+rails g controller Users new
+```
+
+Будет создан контроллер, заглушка представления new и тест.
+
+И, создадим маршрут в /config/routes.rb
+
+```ruby
+get 'signup' => 'users#new'
+```
+
+Ссылка на страницу регистрации:
+```ruby
+<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+```
 
