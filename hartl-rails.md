@@ -19,7 +19,7 @@ gem 'rails_12factor'
 
 Bundle:
 ```ruby
-bundle install --without-production
+bundle install --without production
 ```
 alias:
 ```bash
