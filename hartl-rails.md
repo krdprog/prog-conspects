@@ -360,7 +360,7 @@ user = User.new(name: "Foo", email: "Bar")
 
 Картинки складываем в /app/asserts/images/, но в коде загруженной страницы путь будет виден без images части.
 
-Установим бустрап:
+### Установим бустрап:
 
 ```ruby
 gem 'bootstrap-sass'
