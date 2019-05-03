@@ -44,6 +44,12 @@ Open:
 heroku open # alias: hero
 ```
 
+Если проект уже был создан, и надо сделать миграцию базы данных:
+
+```bash
+heroku run rake db:migrate
+```
+
 Отменить изменения:
 ```bash
 git checkout -f
