@@ -4,12 +4,4 @@
 
 - Rails. Хартл: https://github.com/krdprog/notes/blob/master/hartl-rails.md
 - Ruby in RoR. Хартл: https://github.com/krdprog/notes/blob/master/hartl-ruby.md
-
-## TODO:
-
-- Head First Ruby
-- Vue.js
-- PostgreSQL
-- Git
-- Стив Макконнел "Совершенный код"
-- Роберт Мартин "Чистая архитектура"
+- Gnu Emacs Hotkeys: https://github.com/krdprog/notes/blob/master/gnu-emacs.md
